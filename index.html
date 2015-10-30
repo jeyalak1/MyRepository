@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <script src="http://fb.me/react-0.12.2.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+    var Hello = React.createClass({
+        propTypes:{
+        name:React.PropTypes.string.isRequired,
+        id:  React.PropTypes.number.isRequired
+
+    },
+        getInitialState: function () {
+            return {myname:""}
+
+        },
+        handleChange: function (e) {
+            this.setState({myname: e.target.value});
+
+        },
+        render: function () {
+            var name = this.props.name
+
+            return (<div>
+            <label> Name: </label> {name}
+
+            <label> Id:</label> {this.props.id}
+            <br/>
+            Enter some text in the below text field <br/>
+            <input type = "text"  onChange = {this.handleChange}/><br/>
+
+            {this.state.myname}
+            </div>
+            )
+        }
+    });
+    React.render(
+            <Hello name="KLP" id="2"/> ,
+            document.body
+    );
+</script>
+
+
+</body>
+</html>
